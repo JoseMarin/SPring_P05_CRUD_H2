@@ -26,11 +26,19 @@ public class ClienteController {
 		return clienteServideImpl.listarClientes();
 	}
 	
+	//listar Clientes por campo nombre
+	@GetMapping("/clientes/nombre/{nombre}")
+	public List<Cliente> listarClienteNombre(@PathVariable(name="nombre") String nombre) {
+	    return clienteServideImpl.listarClienteNomnbre(nombre);
+	}
+	
+	
 	@PostMapping("/clientes")
 	public Cliente salvarCliente(@RequestBody Cliente cliente) {
 		
 		return clienteServideImpl.guardarCliente(cliente);
 	}
+	
 	
 	@GetMapping("/clientes/{id}")
 	public Cliente clienteXID(@PathVariable(name="id") Long id) {

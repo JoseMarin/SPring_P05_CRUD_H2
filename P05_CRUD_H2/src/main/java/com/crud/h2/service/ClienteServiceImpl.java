@@ -32,6 +32,7 @@ public class ClienteServiceImpl implements IClienteService{
 		
 		return iClienteDAO.findById(id).get();
 	}
+	
 
 	@Override
 	public Cliente actualizarCliente(Cliente cliente) {
@@ -44,6 +45,13 @@ public class ClienteServiceImpl implements IClienteService{
 		
 		iClienteDAO.deleteById(id);
 		
+	}
+
+
+	@Override
+	public List<Cliente> listarClienteNomnbre(String nombre) {
+		
+		return iClienteDAO.findByNombre(nombre);
 	}
 
 }
